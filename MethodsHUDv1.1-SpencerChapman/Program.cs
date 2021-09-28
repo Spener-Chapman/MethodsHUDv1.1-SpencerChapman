@@ -14,11 +14,12 @@ namespace MethodsHUDv1._1_SpencerChapman
         static int Maxmana;
         static int Level;
         static int Xp;
-        static float ScoreMultiplier;
-        static int Score;
+        static float ScoreMultiplier = 1;
+        static float Score;
         static string Name;
+        static float Soul = 1.5f;
 
-        
+
 
         static void ShowHud()
         {
@@ -30,6 +31,33 @@ namespace MethodsHUDv1._1_SpencerChapman
             Console.WriteLine("");
             Console.WriteLine("");
         }
+
+        static void TakeDamage(int Damage)
+        {
+            Health = Health - Damage;
+        }
+
+        static void AddScore(float ScoreAdd)
+        {
+            Score = Score + ScoreAdd * ScoreMultiplier;
+        }
+
+        static void ManaUse(int UseMana)
+        {
+            Mana = Mana - UseMana;
+        }
+
+        static void XpGain(int addXP)
+        {
+            Xp = Xp + addXP;
+        }
+
+        static void LevelUp()
+        {
+            Xp = Xp - 100;
+            Level = Level + 1;
+        }
+      
         static void Main(string[] args)
         {
             Name = "Musu";
@@ -39,15 +67,19 @@ namespace MethodsHUDv1._1_SpencerChapman
             Maxmana = 100;
             Mana = Maxmana;
             Level = 1;
-            ScoreMultiplier = 1;
             Xp = 0;
 
-            int ZombieScore;
+            float ZombieScore;
             ZombieScore = 50;
             int ZombieXP;
             ZombieXP = 10;
             int ZombieDamage;
             ZombieDamage = 5;
+            int Fireball = 8;
+            float MummyScore = 200;
+            int MummyXp = 40;
+            int MummyDamage = 20;
+           
             
 
             
@@ -59,9 +91,92 @@ namespace MethodsHUDv1._1_SpencerChapman
             Console.WriteLine(Name + "swings his claymore into the zombies side");
             Console.WriteLine("Zombie falls");
             Console.WriteLine(Name + " gains " + ZombieScore + " points and " + ZombieXP + " experience");
+            AddScore(ZombieScore);
+            XpGain(ZombieXP); 
             Console.WriteLine("");
 
             ShowHud();
+
+            Console.WriteLine("");
+            Console.WriteLine(Name + " delves deeper into the crypt");
+            Console.WriteLine(Name + " encounters three zombies!");
+            Console.WriteLine("");
+            Console.WriteLine("Zombie strikes!");
+            Console.WriteLine(Name + " takes " + ZombieDamage + " damage!");
+            TakeDamage(ZombieDamage);
+            Console.WriteLine("");
+            Console.WriteLine("Zombie strikes!");
+            Console.WriteLine(Name + " dodges the attack!");
+            Console.WriteLine("");
+            Console.WriteLine("Zombie strikes!");
+            Console.WriteLine(Name + " takes" + ZombieDamage + " damage!");
+            TakeDamage(ZombieDamage);
+            Console.WriteLine("");
+            Console.WriteLine(Name + " casts fireball for " + Fireball + " mana");
+            Console.WriteLine("Zombie is incinerated!");
+            Console.WriteLine(Name + " gains " + ZombieScore + " x " + ScoreMultiplier + " points and " + ZombieXP + " experience");
+            AddScore(ZombieScore);
+            XpGain(ZombieXP);
+            ManaUse(Fireball);
+            Console.WriteLine("");
+
+            ShowHud();
+
+            Console.WriteLine("");
+            Console.WriteLine("Zombie strikes!");
+            Console.WriteLine(Name + " dodges the attack!");
+            Console.WriteLine("");
+            Console.WriteLine("Zombie strikes!");
+            Console.WriteLine(Name + " takes " + ZombieDamage + " damage!");
+            TakeDamage(ZombieDamage);
+            Console.WriteLine("");
+            Console.WriteLine(Name + " swings his claymore");
+            Console.WriteLine("Zombie Falls");
+            Console.WriteLine("Zombie Dropped a Soul Fragment! Score is now multiplied by " + Soul);
+            ScoreMultiplier = ScoreMultiplier * Soul;
+            Console.WriteLine(Name + " gains " + ZombieScore + " x " +ScoreMultiplier + " points and " + ZombieXP + " experience");
+            Console.WriteLine("");
+            AddScore(ZombieScore);
+            XpGain(ZombieXP);
+
+            ShowHud();
+
+            Console.WriteLine("");
+            Console.WriteLine("Zombie shuffles forward");
+            Console.WriteLine("");
+            Console.WriteLine(Name + " casts fireball for " + Fireball + " mana");
+            Console.WriteLine("Zombie is incinerated!");
+            Console.WriteLine(Name + " gains " + ZombieScore + " x " + ScoreMultiplier + " points and " + ZombieXP + " experience");
+            AddScore(ZombieScore);
+            ManaUse(Fireball);
+            XpGain(ZombieXP);
+            Console.WriteLine("");
+
+            ShowHud();
+
+            Console.WriteLine("");
+            Console.WriteLine(Name + " enters a large room, in the middle there are two coffins");
+            Console.WriteLine("");
+            Console.WriteLine("Two mummies emerge from the coffins");
+            Console.WriteLine("");
+            Console.WriteLine("Mummy Attacks");
+            Console.WriteLine(Name + " takes " + MummyDamage + " damage!");
+            TakeDamage(MummyDamage);
+            Console.WriteLine("Mummy Attacks");
+            Console.WriteLine(Name + " dodges the attack");
+            Console.WriteLine("");
+            Console.WriteLine(Name + " casts fireball for " + Fireball + " mana");
+            Console.WriteLine("Mummy is incinerated!");
+            Console.WriteLine(Name + " gains " + MummyScore + " x " + ScoreMultiplier + " points and " + MummyXp + " experience");
+            ManaUse(Fireball);
+            AddScore(MummyScore);
+            XpGain(MummyXp);
+            Console.WriteLine("");
+
+            ShowHud();
+
+            Console.WriteLine("");
+
 
             Console.ReadKey(true);
         }
