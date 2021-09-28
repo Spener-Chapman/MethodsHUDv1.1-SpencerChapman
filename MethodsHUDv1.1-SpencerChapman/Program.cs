@@ -23,13 +23,12 @@ namespace MethodsHUDv1._1_SpencerChapman
 
         static void ShowHud()
         {
-            Console.WriteLine("=========================");
+            Console.WriteLine("============================");
             Console.WriteLine(" " + Name + "  Score:" + Score);
             Console.WriteLine(" HP:" + Health + "/" + Maxhealth + " " + "MP:" + Mana + "/" + Maxmana);
             Console.WriteLine(" Lvl:" + Level + " " + "Xp:" + Xp + " Soul Power:" + ScoreMultiplier);
-            Console.WriteLine("=========================");
-            Console.WriteLine("");
-            Console.WriteLine("");
+            Console.WriteLine("============================");
+
         }
 
         static void TakeDamage(int Damage)
@@ -56,6 +55,10 @@ namespace MethodsHUDv1._1_SpencerChapman
         {
             Xp = Xp - 100;
             Level = Level + 1;
+            Maxhealth = Maxhealth + 25;
+            Maxmana = Maxmana + 20;
+            Health = Maxhealth;
+            Mana = Maxmana;
         }
       
         static void Main(string[] args)
@@ -173,9 +176,32 @@ namespace MethodsHUDv1._1_SpencerChapman
             XpGain(MummyXp);
             Console.WriteLine("");
 
+
             ShowHud();
 
             Console.WriteLine("");
+            Console.WriteLine("Mummy Attacks");
+            Console.WriteLine(Name + " takes " + MummyDamage + " damage!");
+            TakeDamage(MummyDamage);
+            Console.WriteLine("");
+            Console.WriteLine(Name + " swings his claymore");
+            Console.WriteLine("Mummy is falls!");
+            Console.WriteLine(Name + " gains " + MummyScore + " x " + ScoreMultiplier + " points and " + MummyXp + " experience");
+            Console.WriteLine(Name + " levels up!");
+            Console.WriteLine(Name + " now has an extra 25 HP, and 20 MP!");
+            Console.WriteLine(Name + "'s Health and mana have been restored!");
+            AddScore(MummyScore);
+            XpGain(MummyXp);
+            LevelUp();
+            Console.WriteLine("");
+            
+            ShowHud();
+
+            Console.WriteLine("");
+            Console.WriteLine(Name + " finds the ancient chest and collected the quest reward!");
+            Console.WriteLine(Name + " has collected the ancient amulet of the Sun God");
+
+
 
 
             Console.ReadKey(true);
