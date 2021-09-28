@@ -131,7 +131,7 @@ namespace MethodsHUDv1._1_SpencerChapman
             Console.WriteLine("Zombie Falls");
             Console.WriteLine("Zombie Dropped a Soul Fragment! New score is now multiplied by " + Soul);
             ScoreMultiplier = ScoreMultiplier * Soul;
-            Console.WriteLine(Name + " gains " + ZombieScore + " x " +ScoreMultiplier + " points and " + ZombieXP + " experience");
+            Console.WriteLine(Name + " gains " + ZombieScore + " x " + ScoreMultiplier + " points and " + ZombieXP + " experience");
             Console.WriteLine("");
             AddScore(ZombieScore, ScoreMultiplier);
             XpGain(ZombieXP);
