@@ -72,20 +72,14 @@ namespace MethodsHUDv1._1_SpencerChapman
             Level = 1;
             Xp = 0;
 
-            float ZombieScore;
-            ZombieScore = 50;
-            int ZombieXP;
-            ZombieXP = 10;
-            int ZombieDamage;
-            ZombieDamage = 5;
+            float ZombieScore = 50;
+            int ZombieXP = 10;
+            int ZombieDamage = 5;
             int Fireball = 8;
             float MummyScore = 200;
             int MummyXp = 40;
             int MummyDamage = 20;
            
-            
-
-            
             ShowHud();
             
             Console.WriteLine(Name + " enter's the dark crypt.");
@@ -112,7 +106,7 @@ namespace MethodsHUDv1._1_SpencerChapman
             Console.WriteLine(Name + " dodges the attack!");
             Console.WriteLine("");
             Console.WriteLine("Zombie strikes!");
-            Console.WriteLine(Name + " takes" + ZombieDamage + " damage!");
+            Console.WriteLine(Name + " takes " + ZombieDamage + " damage!");
             TakeDamage(ZombieDamage);
             Console.WriteLine("");
             Console.WriteLine(Name + " casts fireball for " + Fireball + " mana");
@@ -176,7 +170,6 @@ namespace MethodsHUDv1._1_SpencerChapman
             XpGain(MummyXp);
             Console.WriteLine("");
 
-
             ShowHud();
 
             Console.WriteLine("");
@@ -185,8 +178,9 @@ namespace MethodsHUDv1._1_SpencerChapman
             TakeDamage(MummyDamage);
             Console.WriteLine("");
             Console.WriteLine(Name + " swings his claymore");
-            Console.WriteLine("Mummy is falls!");
+            Console.WriteLine("Mummy falls!");
             Console.WriteLine(Name + " gains " + MummyScore + " x " + ScoreMultiplier + " points and " + MummyXp + " experience");
+            Console.WriteLine("");
             Console.WriteLine(Name + " levels up!");
             Console.WriteLine(Name + " now has an extra 25 HP, and 20 MP!");
             Console.WriteLine(Name + "'s Health and mana have been restored!");
@@ -200,9 +194,6 @@ namespace MethodsHUDv1._1_SpencerChapman
             Console.WriteLine("");
             Console.WriteLine(Name + " finds the ancient chest and collected the quest reward!");
             Console.WriteLine(Name + " has collected the ancient amulet of the Sun God");
-
-
-
 
             Console.ReadKey(true);
         }
