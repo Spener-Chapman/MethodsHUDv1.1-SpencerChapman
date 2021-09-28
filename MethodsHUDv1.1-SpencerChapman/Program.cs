@@ -129,7 +129,7 @@ namespace MethodsHUDv1._1_SpencerChapman
             Console.WriteLine("");
             Console.WriteLine(Name + " swings his claymore");
             Console.WriteLine("Zombie Falls");
-            Console.WriteLine("Zombie Dropped a Soul Fragment! Score is now multiplied by " + Soul);
+            Console.WriteLine("Zombie Dropped a Soul Fragment! New score is now multiplied by " + Soul);
             ScoreMultiplier = ScoreMultiplier * Soul;
             Console.WriteLine(Name + " gains " + ZombieScore + " x " +ScoreMultiplier + " points and " + ZombieXP + " experience");
             Console.WriteLine("");
@@ -193,7 +193,7 @@ namespace MethodsHUDv1._1_SpencerChapman
 
             Console.WriteLine("");
             Console.WriteLine(Name + " finds the ancient chest and collected the quest reward!");
-            Console.WriteLine(Name + " has collected the ancient amulet of the Sun God");
+            Console.WriteLine(Name + " has collected the ancient amulet of The Reaper");
 
             Console.ReadKey(true);
         }
