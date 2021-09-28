@@ -36,9 +36,9 @@ namespace MethodsHUDv1._1_SpencerChapman
             Health = Health - Damage;
         }
 
-        static void AddScore(float ScoreAdd)
+        static void AddScore(float ScoreAdd, float Multiplier)
         {
-            Score = Score + ScoreAdd * ScoreMultiplier;
+            Score = Score + ScoreAdd * Multiplier;
         }
 
         static void ManaUse(int UseMana)
@@ -88,7 +88,7 @@ namespace MethodsHUDv1._1_SpencerChapman
             Console.WriteLine(Name + "swings his claymore into the zombies side");
             Console.WriteLine("Zombie falls");
             Console.WriteLine(Name + " gains " + ZombieScore + " points and " + ZombieXP + " experience");
-            AddScore(ZombieScore);
+            AddScore(ZombieScore, ScoreMultiplier);
             XpGain(ZombieXP); 
             Console.WriteLine("");
 
@@ -112,7 +112,7 @@ namespace MethodsHUDv1._1_SpencerChapman
             Console.WriteLine(Name + " casts fireball for " + Fireball + " mana");
             Console.WriteLine("Zombie is incinerated!");
             Console.WriteLine(Name + " gains " + ZombieScore + " x " + ScoreMultiplier + " points and " + ZombieXP + " experience");
-            AddScore(ZombieScore);
+            AddScore(ZombieScore, ScoreMultiplier);
             XpGain(ZombieXP);
             ManaUse(Fireball);
             Console.WriteLine("");
@@ -133,7 +133,7 @@ namespace MethodsHUDv1._1_SpencerChapman
             ScoreMultiplier = ScoreMultiplier * Soul;
             Console.WriteLine(Name + " gains " + ZombieScore + " x " +ScoreMultiplier + " points and " + ZombieXP + " experience");
             Console.WriteLine("");
-            AddScore(ZombieScore);
+            AddScore(ZombieScore, ScoreMultiplier);
             XpGain(ZombieXP);
 
             ShowHud();
@@ -144,7 +144,7 @@ namespace MethodsHUDv1._1_SpencerChapman
             Console.WriteLine(Name + " casts fireball for " + Fireball + " mana");
             Console.WriteLine("Zombie is incinerated!");
             Console.WriteLine(Name + " gains " + ZombieScore + " x " + ScoreMultiplier + " points and " + ZombieXP + " experience");
-            AddScore(ZombieScore);
+            AddScore(ZombieScore, ScoreMultiplier);
             ManaUse(Fireball);
             XpGain(ZombieXP);
             Console.WriteLine("");
@@ -166,7 +166,7 @@ namespace MethodsHUDv1._1_SpencerChapman
             Console.WriteLine("Mummy is incinerated!");
             Console.WriteLine(Name + " gains " + MummyScore + " x " + ScoreMultiplier + " points and " + MummyXp + " experience");
             ManaUse(Fireball);
-            AddScore(MummyScore);
+            AddScore(MummyScore, ScoreMultiplier);
             XpGain(MummyXp);
             Console.WriteLine("");
 
@@ -184,7 +184,7 @@ namespace MethodsHUDv1._1_SpencerChapman
             Console.WriteLine(Name + " levels up!");
             Console.WriteLine(Name + " now has an extra 25 HP, and 20 MP!");
             Console.WriteLine(Name + "'s Health and mana have been restored!");
-            AddScore(MummyScore);
+            AddScore(MummyScore, ScoreMultiplier);
             XpGain(MummyXp);
             LevelUp();
             Console.WriteLine("");
